@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MyMaterial_L6</string>
+    <string name="photo_of_the_day_stub">Photo of the day</string>
+    <string name="search_wiki">Найти в Википедии</string>
+    <string name="wiki_helper_text">Поищите термин в википедии</string>
+    <string name="favourite">Favourite</string>
+    <string name="settings">Settings</string>
+    <string name="search">Search</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="themeSwitch">Theme switch</string>
+    <string name="telescope">Telescope</string>
+    <string name="the_day_before_yesterday">The day before yesterday</string>
+    <string name="yesteday">Yesteday</string>
+    <string name="today">Today</string>
+
+    <string name="pause_left">M26,23 V41</string>
+    <string name="pause_right">M37,23 L37,32 L37,41</string>
+    <string name="pause_right_play">M26,23 L41,32 L27,41</string>
+    <string name="clockwise_circle">M32,8 A24,24 0 1 1 31.99,8 z</string>
+</resources>

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.learn.lavsam.mymaterial.R
 import com.learn.lavsam.mymaterial.ui.animations.*
+import com.learn.lavsam.mymaterial.ui.recycler.RecyclerActivity
 import kotlinx.android.synthetic.main.bottom_navigation_layout.*
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
@@ -51,6 +52,9 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 }
                 R.id.navigation_nine -> activity?.let {
                     startActivity(Intent(it, AnimaVisibilityActivity::class.java))
+                }
+                R.id.navigation_ten -> activity?.let {
+                    startActivity(Intent(it, RecyclerActivity::class.java))
                 }
             }
             dismiss()

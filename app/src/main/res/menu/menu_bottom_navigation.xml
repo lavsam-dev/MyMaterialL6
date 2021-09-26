@@ -37,5 +37,9 @@
             android:id="@+id/navigation_nine"
             android:icon="@drawable/ic_anima"
             android:title="AnimaVisibility" />
+        <item
+            android:id="@+id/navigation_ten"
+            android:icon="@drawable/ic_recycler"
+            android:title="Recycler" />
     </group>
 </menu>

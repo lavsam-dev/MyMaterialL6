@@ -29,6 +29,7 @@
         <activity android:name=".ui.apibottom.NasaApiBottomActivity" />
         <activity android:name=".ui.animations.AnimaVisibilityActivity" />
         <activity android:name=".ui.animations.AnimationsActivity" />
+        <activity android:name=".ui.recycler.RecyclerActivity" />
     </application>
 
 </manifest>

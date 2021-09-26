@@ -18,16 +18,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.api.NasaApiActivity" />
         <activity android:name=".ui.animations.AnimaBonusActivity" />
-        <activity android:name=".ui.animations.AnimaStateListActivity"></activity>
+        <activity android:name=".ui.animations.AnimaStateListActivity"/>
         <activity android:name=".ui.animations.AnimaFabActivity" />
         <activity android:name=".ui.animations.AnimaShuffleActivity" />
         <activity android:name=".ui.animations.AnimaPathActivity" />
         <activity android:name=".ui.animations.AnimaEnlargeActivity" />
         <activity android:name=".ui.animations.AnimaExplodeActivity" />
         <activity android:name=".ui.apibottom.NasaApiBottomActivity" />
-        <activity android:name=".ui.api.NasaApiActivity" />
-        <activity android:name=".ui.MainActivity2" />
+        <activity android:name=".ui.animations.AnimaVisibilityActivity" />
         <activity android:name=".ui.animations.AnimationsActivity" />
     </application>
 

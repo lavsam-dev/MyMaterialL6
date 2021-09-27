@@ -55,6 +55,9 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                     startActivity(Intent(it, AnimaVisibilityActivity::class.java))
                 }
                 R.id.navigation_ten -> activity?.let {
+                    startActivity(Intent(it, RecyclerActivity::class.java))
+                }
+                R.id.navigation_eleven -> activity?.let {
                     startActivity(Intent(it, TasksActivity::class.java))
                 }
             }

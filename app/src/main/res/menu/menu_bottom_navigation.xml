@@ -41,5 +41,10 @@
             android:id="@+id/navigation_ten"
             android:icon="@drawable/ic_recycler"
             android:title="Recycler" />
+        <item
+            android:id="@+id/navigation_eleven"
+            android:icon="@drawable/ic_tasks"
+            android:title="Tasks" />
+
     </group>
 </menu>

@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_my_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyAppTheme">
+        <activity android:name=".ui.recycler.TasksActivity"></activity>
         <activity android:name=".ui.MyMaterialLesson">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +21,7 @@
         </activity>
         <activity android:name=".ui.api.NasaApiActivity" />
         <activity android:name=".ui.animations.AnimaBonusActivity" />
-        <activity android:name=".ui.animations.AnimaStateListActivity"/>
+        <activity android:name=".ui.animations.AnimaStateListActivity" />
         <activity android:name=".ui.animations.AnimaFabActivity" />
         <activity android:name=".ui.animations.AnimaShuffleActivity" />
         <activity android:name=".ui.animations.AnimaPathActivity" />

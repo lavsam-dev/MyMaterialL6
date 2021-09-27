@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_tasks" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/taskHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toStartOf="@id/moveItemUp"
         app:layout_constraintTop_toTopOf="@+id/taskIcon" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/taskDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

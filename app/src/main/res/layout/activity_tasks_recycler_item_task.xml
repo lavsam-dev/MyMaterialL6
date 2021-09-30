@@ -21,13 +21,13 @@
         android:layout_height="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/taskIcon"
-        app:srcCompat="@drawable/ic_tasks" />
+        app:srcCompat="@drawable/ic_task_save" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/taskHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="НазваниезадачиНазваниезадачи"
+        android:text="Закончить курс Material Design"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/taskSave"
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Описание задачи Описание задачи Описание задачи Описание задачи Описание задачи Описание задачи Описание задачи Описание задачи Описание задачи Описание задачи Описание задачи Описание задачи Описание задачи Описание задачи Описание задачи "
+        android:text="Внимательно прослушать все лекции Георгия. Вдумываться в нюансы реализации. Творчески подходить к выполнению домашних заданий (насколько это возможно)"
         android:textColor="#000"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"

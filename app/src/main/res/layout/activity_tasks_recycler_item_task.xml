@@ -9,10 +9,18 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/taskIcon"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_tasks" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/taskSave"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/taskIcon"
         app:srcCompat="@drawable/ic_tasks" />
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -22,7 +30,7 @@
         android:text="НазваниезадачиНазваниезадачи"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/taskIcon"
+        app:layout_constraintBottom_toBottomOf="@+id/taskSave"
         app:layout_constraintStart_toEndOf="@+id/taskIcon"
         app:layout_constraintEnd_toStartOf="@id/moveItemUp"
         app:layout_constraintTop_toTopOf="@+id/taskIcon" />
@@ -37,7 +45,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/taskIcon"
+        app:layout_constraintTop_toBottomOf="@+id/taskSave"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatImageView

@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_recycler_item_earth.view.*
 import kotlinx.android.synthetic.main.activity_recycler_item_mars.view.*
 import java.lang.Math.abs
 
+
 class RecyclerActivity : AppCompatActivity() {
 
     private var isNewList = false
@@ -64,7 +65,7 @@ class RecyclerActivity : AppCompatActivity() {
     private fun createItemList(instanceNumber: Boolean): List<Pair<Data, Boolean>> {
         return when (instanceNumber) {
             false -> listOf(
-                Pair(Data(0, "Header"), false),
+                Pair(Data(0, "HeaderMars"), false),
                 Pair(Data(1, "Mars", ""), false),
                 Pair(Data(2, "Mars", ""), false),
                 Pair(Data(3, "Mars", ""), false),
@@ -73,7 +74,7 @@ class RecyclerActivity : AppCompatActivity() {
                 Pair(Data(6, "Mars", ""), false)
             )
             true -> listOf(
-                Pair(Data(0, "Header"), false),
+                Pair(Data(0, "HeaderPlanets"), false),
                 Pair(Data(1, "Mars", ""), false),
                 Pair(Data(2, "Jupiter", ""), false),
                 Pair(Data(3, "Mars", ""), false),

@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.learn.lavsam.mymaterial.R
 import kotlinx.android.synthetic.main.activity_tasks_recycler.*
 import kotlinx.android.synthetic.main.activity_tasks_recycler_item_task.view.*
+import java.util.*
 
 class TasksActivity : AppCompatActivity() {
 
@@ -55,31 +56,8 @@ class TasksActivity : AppCompatActivity() {
     }
 
     private fun changeAdapterData() {
-        adapter.setItems(createItemList(isNewList).map { it })
+//        adapter.setItems(createItemList(isNewList).map { it })
         isNewList = !isNewList
-    }
-
-    private fun createItemList(instanceNumber: Boolean): List<Pair<DataTask, Boolean>> {
-        return when (instanceNumber) {
-            false -> listOf(
-                Pair(DataTask(0, "Header"), false),
-                Pair(DataTask(1, "Mars1", "Новое описание"), false),
-                Pair(DataTask(2, "Mars2", "Новое описание"), false),
-                Pair(DataTask(3, "Mars3", "Новое описание"), false),
-                Pair(DataTask(4, "Mars4", "Новое описание"), false),
-                Pair(DataTask(5, "Mars5", "Новое описание"), false),
-                Pair(DataTask(6, "Mars6", "Новое описание"), false)
-            )
-            true -> listOf(
-                Pair(DataTask(0, "Header"), false),
-                Pair(DataTask(1, "Mars1", "Новое описание"), false),
-                Pair(DataTask(2, "Jupiter", "Новое описание"), false),
-                Pair(DataTask(3, "Mars2", "Новое описание"), false),
-                Pair(DataTask(4, "Neptune", "Новое описание"), false),
-                Pair(DataTask(5, "Saturn", "Новое описание"), false),
-                Pair(DataTask(6, "Mars3", "Новое описание"), false)
-            )
-        }
     }
 }
 
@@ -88,9 +66,9 @@ class TasksAdapter(
     private var data: MutableList<Pair<DataTask, Boolean>>,
     private val dragListener: OnStartDragListener
 ) :
-    RecyclerView.Adapter<BaseViewHolderTask>(), ItemTouchHelperAdapterTask {
+    RecyclerView.Adapter<BaseViewHolderTaskS>(), ItemTouchHelperAdapterTask {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolderTask {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolderTaskS {
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             TYPE_TASK ->
@@ -103,15 +81,11 @@ class TasksAdapter(
         }
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolderTask, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolderTaskS, position: Int) {
         holder.bind(data[position])
     }
 
-    override fun onBindViewHolder(
-        holder: BaseViewHolderTask,
-        position: Int,
-        payloads: MutableList<Any>
-    ) {
+    override fun onBindViewHolder(holder: BaseViewHolderTaskS, position: Int, payloads: MutableList<Any>) {
         if (payloads.isEmpty())
             super.onBindViewHolder(holder, position, payloads)
         else {
@@ -161,7 +135,10 @@ class TasksAdapter(
         notifyItemInserted(itemCount - 1)
     }
 
-    private fun generateItem() = Pair(DataTask(1, "Новая задача1", "Новое описание1"), false)
+    private fun generateItem(): Pair<DataTask, Boolean> {
+        val rnd = Random()
+        return Pair(DataTask(1, "Новая задача" + rnd.nextInt(99), "Новое описание" + rnd.nextInt(99)), false)
+    }
 
     inner class DiffUtilCallback(
         private var oldItems: List<Pair<DataTask, Boolean>>,
@@ -189,23 +166,29 @@ class TasksAdapter(
         }
     }
 
-    inner class TaskViewHolder(view: View) : BaseViewHolderTask(view), ItemTouchHelperViewHolderTask {
+    inner class TaskViewHolder(view: View) : BaseViewHolderTaskS(view), ItemTouchHelperViewHolderTask {
 
         override fun bind(dataItem: Pair<DataTask, Boolean>) {
-            itemView.taskIcon.setOnClickListener { onListItemClickListener.onItemClick(dataItem.first) }
+            //itemView.taskIcon.setOnClickListener { onListItemClickListener.onItemClick(dataItem.first) }
+            itemView.taskIcon.setOnClickListener {  toggleText()  }
+            itemView.taskSave.setOnClickListener { saveItem() }
             itemView.addItemImageView.setOnClickListener { addItem() }
             itemView.removeItemImageView.setOnClickListener { removeItem() }
             itemView.moveItemDown.setOnClickListener { moveDown() }
             itemView.moveItemUp.setOnClickListener { moveUp() }
             itemView.taskDescription.visibility =
                 if (dataItem.second) View.VISIBLE else View.GONE
-            itemView.taskHeader.setOnClickListener { toggleText() }
+            //itemView.taskHeader.setOnClickListener { toggleText() }
             itemView.dragHandleImageView.setOnTouchListener { _, event ->
                 if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
                     dragListener.onStartDrag(this)
                 }
                 false
             }
+        }
+
+        private fun saveItem() {
+            itemView.setBackgroundColor(Color.MAGENTA)
         }
 
         private fun addItem() {
@@ -252,7 +235,7 @@ class TasksAdapter(
         }
     }
 
-    inner class HeaderViewHolder(view: View) : BaseViewHolderTask(view) {
+    inner class HeaderViewHolder(view: View) : BaseViewHolderTaskS(view) {
 
         override fun bind(dataItem: Pair<DataTask, Boolean>) {
             itemView.setOnClickListener {

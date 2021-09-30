@@ -45,6 +45,10 @@
             android:id="@+id/navigation_eleven"
             android:icon="@drawable/ic_tasks"
             android:title="Tasks" />
+        <item
+            android:id="@+id/navigation_twelve"
+            android:icon="@drawable/ic_recycler"
+            android:title="Chat recycler" />
 
     </group>
 </menu>

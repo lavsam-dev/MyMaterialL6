@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.learn.lavsam.mymaterial.R
+import com.learn.lavsam.mymaterial.ui.ChatActivity
 import com.learn.lavsam.mymaterial.ui.animations.*
 import com.learn.lavsam.mymaterial.ui.recycler.RecyclerActivity
 import com.learn.lavsam.mymaterial.ui.recycler.TasksActivity
@@ -59,6 +60,9 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 }
                 R.id.navigation_eleven -> activity?.let {
                     startActivity(Intent(it, TasksActivity::class.java))
+                }
+                R.id.navigation_twelve -> activity?.let {
+                    startActivity(Intent(it, ChatActivity::class.java))
                 }
             }
             dismiss()

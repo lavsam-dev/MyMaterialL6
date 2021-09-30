@@ -104,6 +104,14 @@ private class ItemAdapter : RecyclerView.Adapter<BaseViewHolder>() {
             author.text = message.author
             messageText.text = message.isImageVisible.toString()
             img.setOnClickListener {
+                layoutPosition.takeIf { it > 1 }?.also { currentPosition ->
+                    items.removeAt(currentPosition).apply {
+                        items.add(currentPosition - 1, this)
+                    }
+                    notifyItemMoved(currentPosition, currentPosition - 1)
+                }
+            }
+            author.setOnClickListener {
                 messageText.text = message.isImageVisible.toString()
                 val model = (items[layoutPosition] as IncomeMessage)
                 model.isImageVisible = !model.isImageVisible

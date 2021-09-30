@@ -1,4 +1,4 @@
-package com.learn.lavsam.mymaterial.ui
+package com.learn.lavsam.mymaterial.ui.animations
 
 import android.os.Bundle
 import android.view.View
@@ -6,15 +6,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
 import com.learn.lavsam.mymaterial.R
-import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.activity_anima_visibility.*
 
-class MainActivity2 : AppCompatActivity() {
+class AnimaVisibilityActivity : AppCompatActivity() {
 
     private var textIsVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.activity_anima_visibility)
 
         btn.setOnClickListener {
             TransitionManager.beginDelayedTransition(container, AutoTransition())

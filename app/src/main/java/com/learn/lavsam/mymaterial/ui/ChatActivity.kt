@@ -102,11 +102,12 @@ private class ItemAdapter : RecyclerView.Adapter<BaseViewHolder>() {
 
         fun bind(message: IncomeMessage) {
             author.text = message.author
-            messageText.text = message.text
+            messageText.text = message.isImageVisible.toString()
             img.setOnClickListener {
                 messageText.text = message.isImageVisible.toString()
                 val model = (items[layoutPosition] as IncomeMessage)
-//                model.isImageVisible = !model.isImageVisible
+                model.isImageVisible = !model.isImageVisible
+                notifyItemChanged(layoutPosition)
             }
         }
     }
@@ -128,7 +129,7 @@ open class ItemData
 data class IncomeMessage(
     val text: String,
     val author: String,
-    val isImageVisible: Boolean = false
+    var isImageVisible: Boolean = false
 ) : ItemData()
 
 data class OutcomeMessage(

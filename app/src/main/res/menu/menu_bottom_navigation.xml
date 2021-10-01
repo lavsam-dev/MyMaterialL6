@@ -4,38 +4,47 @@
         <item
             android:id="@+id/navigation_one"
             android:icon="@drawable/ic_anima"
+            android:visible="false"
             android:title="AnimaClickable" />
         <item
             android:id="@+id/navigation_two"
             android:icon="@drawable/ic_anima"
+            android:visible="false"
             android:title="AnimaBonus" />
         <item
             android:id="@+id/navigation_three"
             android:icon="@drawable/ic_anima"
+            android:visible="false"
             android:title="AnimaEnlarge" />
         <item
             android:id="@+id/navigation_four"
             android:icon="@drawable/ic_anima"
+            android:visible="false"
             android:title="AnimaExplode" />
         <item
             android:id="@+id/navigation_five"
             android:icon="@drawable/ic_anima"
+            android:visible="false"
             android:title="AnimaFab" />
         <item
             android:id="@+id/navigation_six"
             android:icon="@drawable/ic_anima"
+            android:visible="false"
             android:title="AnimaPath" />
         <item
             android:id="@+id/navigation_seven"
             android:icon="@drawable/ic_anima"
+            android:visible="false"
             android:title="AnimaShuffle" />
         <item
             android:id="@+id/navigation_eight"
             android:icon="@drawable/ic_anima"
+            android:visible="false"
             android:title="AnimaStateList" />
         <item
             android:id="@+id/navigation_nine"
             android:icon="@drawable/ic_anima"
+            android:visible="false"
             android:title="AnimaVisibility" />
         <item
             android:id="@+id/navigation_ten"

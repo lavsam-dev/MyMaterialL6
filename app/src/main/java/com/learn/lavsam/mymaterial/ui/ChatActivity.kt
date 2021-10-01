@@ -131,7 +131,6 @@ private class ItemAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     }
 }
 
-
 open class ItemData
 
 data class IncomeMessage(

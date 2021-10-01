@@ -1,8 +1,16 @@
 package com.learn.lavsam.mymaterial.ui.picture
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.QuoteSpan
+import android.text.style.StyleSpan
 import android.view.*
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -117,7 +125,15 @@ class PictureOfTheDayFragment : Fragment() {
             is PictureOfTheDayData.Success -> {
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
-                bottom_sheet_description.text = serverResponseData.explanation
+                val explanation = serverResponseData.explanation
+                var spannable =
+                    SpannableString(explanation).apply {
+                        setSpan(BackgroundColorSpan(Color.MAGENTA), 2, 30, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        setSpan(ForegroundColorSpan(Color.RED), 35, 55, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        setSpan(StyleSpan(Typeface.BOLD), 60, 90, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    }
+
+                bottom_sheet_description.text = spannable
                 bottom_sheet_description_header.text = serverResponseData.title
                 bottom_sheet_description_date.text = apiDate
                 if (url.isNullOrEmpty()) {

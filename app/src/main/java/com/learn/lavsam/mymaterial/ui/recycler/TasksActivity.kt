@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.learn.lavsam.mymaterial.R
@@ -22,17 +21,23 @@ class TasksActivity : AppCompatActivity() {
 
         val taskList: MutableList<DataTask> = mutableListOf(
 //            DataTask(0,"Задачи", ""),
-            DataTask(1,"Task 01", "Description task 01"),
-            DataTask(2,"Task 02", "Description task 02", true),
-            DataTask(3,"Task 03", "Description task 03", true),
-            DataTask(4,"Task 04", "Description task 04")
+            DataTask(1, "Task 01", "Description task 01"),
+            DataTask(2, "Task 02", "Description task 02", true),
+            DataTask(3, "Task 03", "Description task 03", true),
+            DataTask(4, "Task 04", "Description task 04")
         )
 
         tasksView.adapter = adapter
         adapter.items = taskList
 
         tasksActivityFAB.setOnClickListener() {
-            adapter.addTask(DataTask(999,"Закончить курс Material Design", "Внимательно прослушать все лекции Георгия. Вдумываться в нюансы реализации. Творчески подходить к выполнению домашних заданий (насколько это возможно)"))
+            adapter.addTask(
+                DataTask(
+                    999,
+                    "Закончить курс Material Design",
+                    "Внимательно прослушать все лекции Георгия. Вдумываться в нюансы реализации. Творчески подходить к выполнению домашних заданий (насколько это возможно)"
+                )
+            )
         }
     }
 }
@@ -64,7 +69,8 @@ private class ItemAdapter : RecyclerView.Adapter<BaseViewHolderT>() {
 
         if (getItemViewType(position) == TYPE_HEADER || getItemViewType(position) == TYPE_TASK) {
             (holder as TaskViewHolder).bind(currentTask)
-        } else {  }
+        } else {
+        }
     }
 
     fun addTask(task: DataTask) {

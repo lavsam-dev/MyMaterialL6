@@ -7,10 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
-import android.text.style.BackgroundColorSpan
-import android.text.style.ForegroundColorSpan
-import android.text.style.QuoteSpan
-import android.text.style.StyleSpan
+import android.text.style.*
 import android.view.*
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -131,6 +128,7 @@ class PictureOfTheDayFragment : Fragment() {
                         setSpan(BackgroundColorSpan(Color.MAGENTA), 2, 30, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                         setSpan(ForegroundColorSpan(Color.RED), 35, 55, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                         setSpan(StyleSpan(Typeface.BOLD), 60, 90, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        setSpan(ScaleXSpan(1.5f), 100, 130, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                     }
 
                 bottom_sheet_description.text = spannable

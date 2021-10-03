@@ -25,6 +25,7 @@ import com.learn.lavsam.mymaterial.ui.api.NasaApiActivity
 import com.learn.lavsam.mymaterial.ui.apibottom.NasaApiBottomActivity
 import com.learn.lavsam.mymaterial.ui.settings.SettingsFragment
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
+import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.main_fragment.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -85,6 +86,31 @@ class PictureOfTheDayFragment : Fragment() {
                         Observer<PictureOfTheDayData> { renderData(it) })
             }
         }
+
+        scaleChips.setOnCheckedChangeListener { chipGroup, position ->
+            scaleChips.findViewById<Chip>(position)?.let {
+                when (position) {
+                    4 -> {
+                        var spannable = SpannableString(bottom_sheet_description.text).apply {
+                            setSpan(
+                                ScaleXSpan(1.2f), 0, bottom_sheet_description.text.length - 1,
+                                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                            )
+                        }
+                        bottom_sheet_description.text = spannable
+                    }
+                    5 -> {
+                        var spannable = SpannableString(bottom_sheet_description.text).apply {
+                            setSpan(
+                                ScaleXSpan(0.8f), 0, bottom_sheet_description.text.length - 1,
+                                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                            )
+                        }
+                        bottom_sheet_description.text = spannable
+                    }
+                }
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -125,9 +151,24 @@ class PictureOfTheDayFragment : Fragment() {
                 val explanation = serverResponseData.explanation
                 var spannable =
                     SpannableString(explanation).apply {
-                        setSpan(BackgroundColorSpan(Color.MAGENTA), 2, 30, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                        setSpan(ForegroundColorSpan(Color.RED), 35, 55, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                        setSpan(StyleSpan(Typeface.BOLD), 60, 90, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        setSpan(
+                            BackgroundColorSpan(Color.MAGENTA),
+                            2,
+                            30,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+                        setSpan(
+                            ForegroundColorSpan(Color.RED),
+                            35,
+                            55,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+                        setSpan(
+                            StyleSpan(Typeface.BOLD),
+                            60,
+                            90,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
                         setSpan(ScaleXSpan(1.5f), 100, 130, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                     }
 

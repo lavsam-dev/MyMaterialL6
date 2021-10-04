@@ -97,5 +97,21 @@
             android:text="-" />
     </com.google.android.material.chip.ChipGroup>
 
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/boldSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:checked="false"
+        android:text="Bold"
+        android:textOff=""
+        android:textOn=""
+        app:showText="true"
+        app:layout_constraintTop_toTopOf="@id/scaleChips"
+        app:layout_constraintStart_toEndOf="@id/scaleChips"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

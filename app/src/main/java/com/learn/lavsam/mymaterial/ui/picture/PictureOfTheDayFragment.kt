@@ -9,6 +9,7 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.*
 import android.view.*
+import android.widget.Switch
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -110,6 +111,27 @@ class PictureOfTheDayFragment : Fragment() {
                     }
                 }
             }
+        }
+
+        boldSwitch.setOnCheckedChangeListener { boldSw, isChecked ->
+            if (isChecked) {
+                var spannable = SpannableString(bottom_sheet_description.text).apply {
+                    setSpan(
+                        StyleSpan(Typeface.BOLD), 0, bottom_sheet_description.text.length - 1,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                }
+                bottom_sheet_description.text = spannable
+            } else {
+                var spannable = SpannableString(bottom_sheet_description.text).apply {
+                    setSpan(
+                        StyleSpan(Typeface.ITALIC), 0, bottom_sheet_description.text.length - 1,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                }
+                bottom_sheet_description.text = spannable
+            }
+
         }
     }
 

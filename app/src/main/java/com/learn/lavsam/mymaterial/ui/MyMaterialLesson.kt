@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.learn.lavsam.mymaterial.R
 import com.learn.lavsam.mymaterial.ui.picture.PictureOfTheDayFragment
+import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 
 class MyMaterialLesson : AppCompatActivity() {
     var bool = false

@@ -1,9 +1,15 @@
 package com.learn.lavsam.mymaterial.ui.picture
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.*
 import android.view.*
+import android.widget.Switch
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -20,6 +26,7 @@ import com.learn.lavsam.mymaterial.ui.api.NasaApiActivity
 import com.learn.lavsam.mymaterial.ui.apibottom.NasaApiBottomActivity
 import com.learn.lavsam.mymaterial.ui.settings.SettingsFragment
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
+import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.main_fragment.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -80,6 +87,52 @@ class PictureOfTheDayFragment : Fragment() {
                         Observer<PictureOfTheDayData> { renderData(it) })
             }
         }
+
+        scaleChips.setOnCheckedChangeListener { chipGroup, position ->
+            scaleChips.findViewById<Chip>(position)?.let {
+                when (position) {
+                    4 -> {
+                        var spannable = SpannableString(bottom_sheet_description.text).apply {
+                            setSpan(
+                                ScaleXSpan(1.2f), 0, bottom_sheet_description.text.length - 1,
+                                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                            )
+                        }
+                        bottom_sheet_description.text = spannable
+                    }
+                    5 -> {
+                        var spannable = SpannableString(bottom_sheet_description.text).apply {
+                            setSpan(
+                                ScaleXSpan(0.8f), 0, bottom_sheet_description.text.length - 1,
+                                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                            )
+                        }
+                        bottom_sheet_description.text = spannable
+                    }
+                }
+            }
+        }
+
+        boldSwitch.setOnCheckedChangeListener { boldSw, isChecked ->
+            if (isChecked) {
+                var spannable = SpannableString(bottom_sheet_description.text).apply {
+                    setSpan(
+                        StyleSpan(Typeface.BOLD), 0, bottom_sheet_description.text.length - 1,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                }
+                bottom_sheet_description.text = spannable
+            } else {
+                var spannable = SpannableString(bottom_sheet_description.text).apply {
+                    setSpan(
+                        StyleSpan(Typeface.ITALIC), 0, bottom_sheet_description.text.length - 1,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                }
+                bottom_sheet_description.text = spannable
+            }
+
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -117,7 +170,31 @@ class PictureOfTheDayFragment : Fragment() {
             is PictureOfTheDayData.Success -> {
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
-                bottom_sheet_description.text = serverResponseData.explanation
+                val explanation = serverResponseData.explanation
+                var spannable =
+                    SpannableString(explanation).apply {
+                        setSpan(
+                            BackgroundColorSpan(Color.MAGENTA),
+                            2,
+                            30,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+                        setSpan(
+                            ForegroundColorSpan(Color.RED),
+                            35,
+                            55,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+                        setSpan(
+                            StyleSpan(Typeface.BOLD),
+                            60,
+                            90,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+                        setSpan(ScaleXSpan(1.5f), 100, 130, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    }
+
+                bottom_sheet_description.text = spannable
                 bottom_sheet_description_header.text = serverResponseData.title
                 bottom_sheet_description_date.text = apiDate
                 if (url.isNullOrEmpty()) {

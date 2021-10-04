@@ -32,6 +32,10 @@
         <activity android:name=".ui.animations.AnimaVisibilityActivity" />
         <activity android:name=".ui.animations.AnimationsActivity" />
         <activity android:name=".ui.recycler.RecyclerActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
